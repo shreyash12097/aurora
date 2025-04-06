@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Aurora</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <style>
+    body {
+      margin: 50px;
+    }
+
+    #main {
+      padding-left: 5cap;
+      padding-right: 5cap;
+      margin-bottom: 30px;
+    }
+
+    #nav_bar {
+      background-color: rgb(249, 249, 234);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 30px;
+    }
+    nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    nav a i{
+      font-size: 24px;
+    }
+    .material-icon{
+      padding-top: 20px;
+    }
+
+    .nav_bar-1 {
+      justify-content: right;
+      
+    }
+
+    .nav_bar-2 {
+      justify-content: right;
+      padding-top: 30px;
+    }
+
+    #category {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      background-color: whitesmoke;
+
+    }
+
+    #back {
+      background-image: url(one.jpg);
+      text-align: left;
+      min-height: 460px;
+      width: 100%;
+      object-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; 
+  padding: 10px;
+
+      h2{
+        padding-top: 50px;
+        color: azure;
+        font-size: 6cap;
+        padding-right: 410px;
+      }
+    
+    }
+    h1 {
+      text-align: center;
+      color: rgb(140, 77, 18);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #image {
+      padding: 30px;
+      background-color: whitesmoke;
+      display: flex;
+      justify-content: space-evenly;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .img {
+      padding: 40px;
+      border: 4px solid rgb(237, 198, 198);
+    }
+
+
+    .btn-btn-primary {
+      color: brown;
+
+    }
+    #back h3{
+      color: aliceblue;
+    }
+  </style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Aurora</title>
+</head>
+
+<div>
+
+  <div id="main">
+
+    <div id="nav_bar">
+      <div class="nav_bar-1">
+        <h1>Aurora</h1>
+      </div>
+
+    
+    <nav>
+      <div material-icon>
+
+        <a href="{{ url_for('login') }}"> <i class="material-icons">person</i></a>
+
+         
+      </a>
+      
+      
+       <a href="/shop.html"><i class='bx bx-cart-add'></i></a> 
+      </div>
+    </nav>
+         </div>
+        </div>
+  </div>
+
+  <div id="back">
+    <div id="letter">
+    <h2> Shine Brighter <br> With Aurora</h2>
+    <h3>Every day is a fine day for you with our fine collection</h3></div>
+    
+  </div><br><br><br><br><br>
+
+
+
+  <h1> Shop By Category</h1>
+
+  <div id="category">
+    <a href="/oxidized.html" class="btn-btn-primary"> <img src="oxidized/1.jpeg"></a>
+  <a href="/pearls.html" class="btn-btn-primary"> <img src="pearls/pearls.jpeg"></a><br>
+  <a href="/hoop.html" class="btn-btn-primary"> <img src="hoop/hoop.jpeg"></a>
+  <a href="/long.html" class="btn-btn-primary"> <img src="long/long.jpeg"></a>
+  <a href="/ear%20chain.html" class="btn-btn-primary"> <img src="chain/chain_jhumkas.jpeg"></a>
+  <a href="/antique.html" class="btn-btn-primary"> <img src="antique/antique.jpeg"></a>
+</div><br><br><br><br><br>
+
+
+
+<h1> Daily Wears</h1>
+<div id="image">
+
+  <div class="img">
+    <img src="daily/1.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/10.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/11.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+
+  <div class="img">
+    <img src="daily/2.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div><br><br>
+
+  <div class="img">
+    <img src="daily/3.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+
+  <div class="img">
+    <img src="daily/3.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/4.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/5.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/6.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/7.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="daily/8.jpeg">
+    <div class="img-body">
+      <p> Rs 2200</p>
+      <button><a href="#" class="btn-btn-primary"> Add to cart</a></button>
+    </div>
+  </div>
+
+</div>
+
+<div id="bottom">
+  <h2>
+    Online Earings Shop Nepal
+  </h2>
+</div>
+</div>
+
+</form>
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: beige; 
+            color: #404040; 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #2F4F4F; /* Dark Slate */
+            margin-bottom: 40px;
+        }
+        
+        form {
+            background-color: #FFFFFF; /* White */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        form input {
+            padding: 10px;
+            margin: 10px;
+            width: 45%;
+            border-radius: 5px;
+            border: 1px solid #404040; /* Dark Gray */
+            font-size: 16px;
+        }
+        
+        form button {
+            background-color: #2F4F4F; /* Dark Slate */
+            color: #FFFFFF; /* White */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        form button:hover {
+            background-color: #404040; /* Dark Gray */
+        }
+        
+        /* Product List Container */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        /* Product Card */
+        .row {
+            background-color: #FFFFFF; /* White */
+            padding: 15px;
+            border-radius: 10px;
+            width: 220px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .row:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .row img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .row h4 {
+            font-size: 18px;
+            color: #327f7f; 
+            margin-bottom: 10px;
+        }
+        
+        .row p {
+            color: #404040; /* Dark Gray */
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .row button {
+            background-color: #325b5b;
+            color: #FFFFFF; 
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+        
+        .row button:hover {
+            background-color: beige; 
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- Product Form -->
+    <form id="productForm">
+        <input type="text" id="productName" placeholder="Product Name" required>
+        <input type="number" id="productPrice" placeholder="Price" required>
+        <input type="text" id="productImage" placeholder="Image URL" required>
+        <button type="submit">Add Product</button>
+    </form>
+
+    <!-- Product List Container -->
+    <div class="products" id="productList"></div>
+
+    <script>
+        const productList = document.getElementById("productList");
+        const productForm = document.getElementById("productForm");
+
+        let products = []; // Array to hold product data
+
+        // Add Product (Create operation)
+        productForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const productName = document.getElementById("productName").value;
+            const productPrice = document.getElementById("productPrice").value;
+            const productImage = document.getElementById("productImage").value;
+
+            // Create a new product object
+            const newProduct = {
+                id: Date.now(),
+                name: productName,
+                price: productPrice,
+                image: productImage
+            };
+
+            // Add the new product to the products array
+            products.push(newProduct);
+            displayProducts();
+            productForm.reset(); // Reset form inputs
+        });
+
+        // Display Products (Read operation)
+        function displayProducts() {
+            productList.innerHTML = ""; // Clear the product list before rendering
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("row");
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p>Price: Rs${product.price}</p>
+                    <button onclick="editProduct(${product.id})">Edit</button>
+                    <button onclick="deleteProduct(${product.id})">Delete</button>
+                `;
+                productList.appendChild(productElement);
+            });
+        }
+
+        // Edit Product (Update operation)
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            document.getElementById("productName").value = product.name;
+            document.getElementById("productPrice").value = product.price;
+            document.getElementById("productImage").value = product.image;
+
+            // Remove the product before re-adding it after update
+            deleteProduct(productId);
+        }
+
+        // Delete Product (Delete operation)
+        function deleteProduct(productId) {
+            products = products.filter(p => p.id !== productId);
+            displayProducts();
+        }
+    </script>
+
+</body>
+</html>
